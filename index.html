@@ -1,352 +1,1044 @@
-+<!DOCTYPE html>
-+<html lang="en">
-+<head>
-+    <meta charset="UTF-8">
-+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-+    <title>AI Tool Directory - Discover the Best AI Tools & Software</title>
-+    <meta name="description" content="Discover, compare, and find the best AI tools for writing, image generation, coding, automation, and more. Comprehensive directory with reviews and ratings.">
-+    <meta name="keywords" content="AI tools, artificial intelligence, chatbots, image generation, code AI, automation tools, AI directory">
-+    <meta name="author" content="AI Tool Directory">
-+    
-+    <!-- Open Graph Meta Tags -->
-+    <meta property="og:title" content="AI Tool Directory - Discover the Best AI Tools">
-+    <meta property="og:description" content="Find and compare the best AI tools for your needs. From writing assistants to image generators.">
-+    <meta property="og:type" content="website">
-+    <meta property="og:url" content="https://your-domain.github.io">
-+    
-+    <!-- Twitter Card Meta Tags -->
-+    <meta name="twitter:card" content="summary_large_image">
-+    <meta name="twitter:title" content="AI Tool Directory">
-+    <meta name="twitter:description" content="Discover the best AI tools for writing, coding, design, and more.">
-+    
-+    <!-- Favicon -->
-+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-+    
-+    <!-- CSS -->
-+    <link rel="stylesheet" href="styles/main.css">
-+    
-+    <!-- Google Fonts -->
-+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-+    
-+    <!-- Font Awesome for Icons -->
-+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-+</head>
-+<body>
-+    <!-- Theme Toggle Button -->
-+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-+        <i class="fas fa-moon"></i>
-+    </button>
-+
-+    <!-- Header -->
-+    <header class="header">
-+        <div class="container">
-+            <div class="header-content">
-+                <div class="logo">
-+                    <i class="fas fa-robot"></i>
-+                    <span>AI Tool Directory</span>
-+                </div>
-+                <nav class="nav">
-+                    <a href="#home" class="nav-link active">Home</a>
-+                    <a href="#tools" class="nav-link">Tools</a>
-+                    <a href="#categories" class="nav-link">Categories</a>
-+                    <a href="#submit" class="nav-link">Submit Tool</a>
-+                    <a href="#contact" class="nav-link">Contact</a>
-+                </nav>
-+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
-+                    <span></span>
-+                    <span></span>
-+                    <span></span>
-+                </button>
-+            </div>
-+        </div>
-+    </header>
-+
-+    <!-- Mobile Navigation -->
-+    <nav class="mobile-nav" id="mobileNav">
-+        <a href="#home" class="mobile-nav-link">Home</a>
-+        <a href="#tools" class="mobile-nav-link">Tools</a>
-+        <a href="#categories" class="mobile-nav-link">Categories</a>
-+        <a href="#submit" class="mobile-nav-link">Submit Tool</a>
-+        <a href="#contact" class="mobile-nav-link">Contact</a>
-+    </nav>
-+
-+    <!-- Hero Section -->
-+    <section id="home" class="hero">
-+        <div class="container">
-+            <div class="hero-content">
-+                <h1 class="hero-title">Discover the Best AI Tools</h1>
-+                <p class="hero-subtitle">Find and compare AI-powered software for writing, design, coding, automation, and more. Your gateway to the future of productivity.</p>
-+                
-+                <!-- Search Bar -->
-+                <div class="search-container">
-+                    <div class="search-box">
-+                        <i class="fas fa-search search-icon"></i>
-+                        <input type="text" id="searchInput" placeholder="Search AI tools..." class="search-input">
-+                        <button class="search-clear" id="searchClear">
-+                            <i class="fas fa-times"></i>
-+                        </button>
-+                    </div>
-+                </div>
-+
-+                <!-- Quick Stats -->
-+                <div class="hero-stats">
-+                    <div class="stat">
-+                        <span class="stat-number" data-count="50">0</span>
-+                        <span class="stat-label">AI Tools</span>
-+                    </div>
-+                    <div class="stat">
-+                        <span class="stat-number" data-count="12">0</span>
-+                        <span class="stat-label">Categories</span>
-+                    </div>
-+                    <div class="stat">
-+                        <span class="stat-number" data-count="10000">0</span>
-+                        <span class="stat-label">Users</span>
-+                    </div>
-+                </div>
-+            </div>
-+        </div>
-+    </section>
-+
-+    <!-- Featured Tools Section -->
-+    <section class="featured-section">
-+        <div class="container">
-+            <h2 class="section-title">🔥 Trending AI Tools</h2>
-+            <div class="featured-tools" id="featuredTools">
-+                <!-- Featured tools will be populated by JavaScript -->
-+            </div>
-+        </div>
-+    </section>
-+
-+    <!-- Categories Section -->
-+    <section id="categories" class="categories-section">
-+        <div class="container">
-+            <h2 class="section-title">Browse by Category</h2>
-+            <div class="categories-grid" id="categoriesGrid">
-+                <!-- Categories will be populated by JavaScript -->
-+            </div>
-+        </div>
-+    </section>
-+
-+    <!-- Filters and Tools Section -->
-+    <section id="tools" class="tools-section">
-+        <div class="container">
-+            <div class="tools-header">
-+                <h2 class="section-title">All AI Tools</h2>
-+                <div class="tools-controls">
-+                    <!-- Filter Panel -->
-+                    <div class="filters-container">
-+                        <button class="filters-toggle" id="filtersToggle">
-+                            <i class="fas fa-filter"></i>
-+                            Filters
-+                        </button>
-+                        <div class="filters-panel" id="filtersPanel">
-+                            <div class="filter-group">
-+                                <label class="filter-label">Category</label>
-+                                <select id="categoryFilter" class="filter-select">
-+                                    <option value="">All Categories</option>
-+                                </select>
-+                            </div>
-+                            <div class="filter-group">
-+                                <label class="filter-label">Pricing</label>
-+                                <select id="pricingFilter" class="filter-select">
-+                                    <option value="">All Pricing</option>
-+                                    <option value="Free">Free</option>
-+                                    <option value="Freemium">Freemium</option>
-+                                    <option value="Paid">Paid</option>
-+                                </select>
-+                            </div>
-+                            <div class="filter-group">
-+                                <label class="filter-label">Rating</label>
-+                                <select id="ratingFilter" class="filter-select">
-+                                    <option value="">All Ratings</option>
-+                                    <option value="4.5">4.5+ Stars</option>
-+                                    <option value="4.0">4.0+ Stars</option>
-+                                    <option value="3.5">3.5+ Stars</option>
-+                                </select>
-+                            </div>
-+                            <button class="filter-clear" id="clearFilters">Clear Filters</button>
-+                        </div>
-+                    </div>
-+
-+                    <!-- View Toggle -->
-+                    <div class="view-toggle">
-+                        <button class="view-btn active" data-view="grid" title="Grid View">
-+                            <i class="fas fa-th"></i>
-+                        </button>
-+                        <button class="view-btn" data-view="list" title="List View">
-+                            <i class="fas fa-list"></i>
-+                        </button>
-+                    </div>
-+
-+                    <!-- Comparison Toggle -->
-+                    <button class="comparison-toggle" id="comparisonToggle" title="Compare Tools">
-+                        <i class="fas fa-balance-scale"></i>
-+                        Compare (<span id="comparisonCount">0</span>)
-+                    </button>
-+                </div>
-+            </div>
-+
-+            <!-- Tools Grid -->
-+            <div class="tools-grid" id="toolsGrid">
-+                <!-- Tools will be populated by JavaScript -->
-+            </div>
-+
-+            <!-- Load More Button -->
-+            <div class="load-more-container">
-+                <button class="load-more-btn" id="loadMoreBtn">Load More Tools</button>
-+            </div>
-+        </div>
-+    </section>
-+
-+    <!-- Submit Tool Section -->
-+    <section id="submit" class="submit-section">
-+        <div class="container">
-+            <div class="submit-content">
-+                <h2 class="section-title">Submit Your AI Tool</h2>
-+                <p class="section-subtitle">Have an AI tool to share? Submit it to our directory and reach thousands of users.</p>
-+                
-+                <form class="submit-form" id="submitForm">
-+                    <div class="form-row">
-+                        <div class="form-group">
-+                            <label for="toolName">Tool Name *</label>
-+                            <input type="text" id="toolName" name="toolName" required>
-+                        </div>
-+                        <div class="form-group">
-+                            <label for="toolWebsite">Website URL *</label>
-+                            <input type="url" id="toolWebsite" name="toolWebsite" required>
-+                        </div>
-+                    </div>
-+                    
-+                    <div class="form-group">
-+                        <label for="toolDescription">Description *</label>
-+                        <textarea id="toolDescription" name="toolDescription" rows="3" required placeholder="Describe what your AI tool does..."></textarea>
-+                    </div>
-+                    
-+                    <div class="form-row">
-+                        <div class="form-group">
-+                            <label for="toolCategory">Category *</label>
-+                            <select id="toolCategory" name="toolCategory" required>
-+                                <option value="">Select Category</option>
-+                            </select>
-+                        </div>
-+                        <div class="form-group">
-+                            <label for="toolPricing">Pricing Model *</label>
-+                            <select id="toolPricing" name="toolPricing" required>
-+                                <option value="">Select Pricing</option>
-+                                <option value="Free">Free</option>
-+                                <option value="Freemium">Freemium</option>
-+                                <option value="Paid">Paid</option>
-+                            </select>
-+                        </div>
-+                    </div>
-+                    
-+                    <div class="form-group">
-+                        <label for="toolTags">Tags (comma-separated)</label>
-+                        <input type="text" id="toolTags" name="toolTags" placeholder="e.g., chatbot, content generation, API">
-+                    </div>
-+                    
-+                    <button type="submit" class="submit-btn">
-+                        <i class="fas fa-paper-plane"></i>
-+                        Submit Tool
-+                    </button>
-+                </form>
-+            </div>
-+        </div>
-+    </section>
-+
-+    <!-- Newsletter Section -->
-+    <section class="newsletter-section">
-+        <div class="container">
-+            <div class="newsletter-content">
-+                <h2>Stay Updated</h2>
-+                <p>Get weekly updates on the latest AI tools and trends.</p>
-+                <form class="newsletter-form" id="newsletterForm">
-+                    <input type="email" placeholder="Enter your email" required>
-+                    <button type="submit">Subscribe</button>
-+                </form>
-+            </div>
-+        </div>
-+    </section>
-+
-+    <!-- Contact Section -->
-+    <section id="contact" class="contact-section">
-+        <div class="container">
-+            <div class="contact-content">
-+                <h2 class="section-title">Get in Touch</h2>
-+                <p class="section-subtitle">Have questions or suggestions? We'd love to hear from you.</p>
-+                
-+                <form class="contact-form" id="contactForm">
-+                    <div class="form-row">
-+                        <div class="form-group">
-+                            <label for="contactName">Name *</label>
-+                            <input type="text" id="contactName" name="name" required>
-+                        </div>
-+                        <div class="form-group">
-+                            <label for="contactEmail">Email *</label>
-+                            <input type="email" id="contactEmail" name="email" required>
-+                        </div>
-+                    </div>
-+                    
-+                    <div class="form-group">
-+                        <label for="contactSubject">Subject *</label>
-+                        <input type="text" id="contactSubject" name="subject" required>
-+                    </div>
-+                    
-+                    <div class="form-group">
-+                        <label for="contactMessage">Message *</label>
-+                        <textarea id="contactMessage" name="message" rows="5" required></textarea>
-+                    </div>
-+                    
-+                    <button type="submit" class="submit-btn">
-+                        <i class="fas fa-envelope"></i>
-+                        Send Message
-+                    </button>
-+                </form>
-+            </div>
-+        </div>
-+    </section>
-+
-+    <!-- Footer -->
-+    <footer class="footer">
-+        <div class="container">
-+            <div class="footer-content">
-+                <div class="footer-brand">
-+                    <div class="logo">
-+                        <i class="fas fa-robot"></i>
-+                        <span>AI Tool Directory</span>
-+                    </div>
-+                    <p>Discover the best AI tools for your needs.</p>
-+                </div>
-+                <div class="footer-links">
-+                    <div class="footer-column">
-+                        <h4>Quick Links</h4>
-+                        <a href="#home">Home</a>
-+                        <a href="#tools">Browse Tools</a>
-+                        <a href="#categories">Categories</a>
-+                        <a href="#submit">Submit Tool</a>
-+                    </div>
-+                    <div class="footer-column">
-+                        <h4>Support</h4>
-+                        <a href="#contact">Contact Us</a>
-+                        <a href="#faq">FAQ</a>
-+                        <a href="#privacy">Privacy Policy</a>
-+                        <a href="#terms">Terms of Service</a>
-+                    </div>
-+                    <div class="footer-column">
-+                        <h4>Follow Us</h4>
-+                        <div class="social-links">
-+                            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-+                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-+                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-+                        </div>
-+                    </div>
-+                </div>
-+            </div>
-+            <div class="footer-bottom">
-+                <p>&copy; 2024 AI Tool Directory. All rights reserved.</p>
-+            </div>
-+        </div>
-+    </footer>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tool Directory - Discover the Best AI Tools & Software</title>
+    <meta name="description" content="Discover, compare, and find the best AI tools for writing, image generation, coding, automation, and more. Comprehensive directory with reviews and ratings.">
+    <meta name="keywords" content="AI tools, artificial intelligence, chatbots, image generation, code AI, automation tools, AI directory">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AI Tool Directory - Discover the Best AI Tools">
+    <meta property="og:description" content="Find and compare the best AI tools for your needs. From writing assistants to image generators.">
+    <meta property="og:type" content="website">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --danger-color: #ef4444;
+            --warning-color: #f59e0b;
+            --success-color: #10b981;
+            
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-hover: #f1f5f9;
+            
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            
+            --border-color: #e2e8f0;
+            --border-light: #f1f5f9;
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #1e293b;
+            --bg-hover: #334155;
+            
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            
+            --border-color: #334155;
+            --border-light: #475569;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header Styles */
+        .header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-md) 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 1.5rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+            background-color: var(--bg-hover);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: all 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 999;
+            padding: var(--spacing-md);
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            padding: var(--spacing-md);
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: var(--spacing-2xl) 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-md);
+            background: linear-gradient(45deg, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-xl);
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto var(--spacing-xl);
+        }
+
+        .search-box {
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .search-input {
+            flex: 1;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-icon,
+        .search-clear {
+            color: rgba(255, 255, 255, 0.7);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-clear {
+            display: none;
+        }
+
+        .search-clear.visible {
+            display: block;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: var(--spacing-2xl) 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Featured Tools Section */
+        .featured-section {
+            background: var(--bg-secondary);
+            padding: var(--spacing-2xl) 0;
+        }
+
+        .featured-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        /* Categories Grid */
+        .categories-section {
+            padding: var(--spacing-2xl) 0;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .category-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+
+        .category-count {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Tools Section */
+        .tools-section {
+            background: var(--bg-secondary);
+            padding: var(--spacing-2xl) 0;
+        }
+
+        .tools-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .tools-controls {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .filters-container {
+            position: relative;
+        }
+
+        .filters-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-sm) var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filters-toggle:hover {
+            border-color: var(--primary-color);
+        }
+
+        .filters-panel {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            padding: var(--spacing-md);
+            min-width: 250px;
+            z-index: 100;
+            display: none;
+        }
+
+        .filters-panel.active {
+            display: block;
+        }
+
+        .filter-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .filter-label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+
+        .filter-select {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        .filter-clear {
+            background: var(--danger-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-clear:hover {
+            opacity: 0.9;
+        }
+
+        .view-toggle {
+            display: flex;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .view-btn {
+            background: var(--bg-card);
+            border: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .view-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .comparison-toggle {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            padding: var(--spacing-sm) var(--spacing-md);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            transition: all 0.2s ease;
+        }
+
+        .comparison-toggle:hover {
+            opacity: 0.9;
+        }
+
+        .comparison-toggle.active {
+            background: var(--accent-color);
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .tools-grid.list-view {
+            grid-template-columns: 1fr;
+        }
+
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .tool-badges {
+            position: absolute;
+            top: var(--spacing-md);
+            right: var(--spacing-md);
+            display: flex;
+            gap: var(--spacing-xs);
+            flex-direction: column;
+        }
+
+        .tool-badge {
+            background: var(--primary-color);
+            color: white;
+            font-size: 0.75rem;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+        }
+
+        .badge-trending {
+            background: var(--accent-color);
+        }
+
+        .badge-free {
+            background: var(--secondary-color);
+        }
+
+        .badge-freemium {
+            background: var(--warning-color);
+        }
+
+        .badge-paid {
+            background: var(--danger-color);
+        }
+
+        .tool-header {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .tool-image {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .tool-info {
+            flex: 1;
+        }
+
+        .tool-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-primary);
+        }
+
+        .tool-category {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .tool-actions {
+            display: flex;
+            gap: var(--spacing-xs);
+        }
+
+        .tool-action-btn {
+            background: var(--bg-hover);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tool-action-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .tool-action-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .tool-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.5;
+        }
+
+        .tool-tags {
+            display: flex;
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .tool-tag {
+            background: var(--bg-hover);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+        }
+
+        .tool-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tool-stats {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+
+        .tool-rating {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .stars {
+            color: var(--accent-color);
+        }
+
+        .tool-stat {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .tool-cta {
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            transition: all 0.2s ease;
+        }
+
+        .tool-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .load-more-container {
+            text-align: center;
+        }
+
+        .load-more-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md) var(--spacing-xl);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .load-more-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Form Styles */
+        .submit-section,
+        .contact-section {
+            padding: var(--spacing-2xl) 0;
+        }
+
+        .submit-form,
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md) var(--spacing-xl);
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            transition: all 0.2s ease;
+            margin-top: var(--spacing-md);
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: var(--primary-color);
+            color: white;
+            padding: var(--spacing-2xl) 0;
+            text-align: center;
+        }
+
+        .newsletter-content h2 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .newsletter-content p {
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 400px;
+            margin: 0 auto;
+            gap: var(--spacing-md);
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: var(--spacing-md);
+            border: none;
+            border-radius: var(--radius-md);
+        }
+
+        .newsletter-form button {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md) var(--spacing-lg);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .newsletter-form button:hover {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: var(--spacing-2xl) 0 var(--spacing-md);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .footer-brand {
+            grid-column: span 2;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            margin-top: var(--spacing-md);
+        }
+
+        .footer-column h4 {
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: var(--spacing-sm);
+            transition: color 0.2s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-hover);
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            margin: var(--spacing-md);
+            width: 100%;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-lg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-header h3 {
+            color: var(--text-primary);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .modal-body {
+            padding: var(--spacing-lg);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .loading-spinner.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border-color);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0
+
 +
 +    <!-- Comparison Modal -->
 +    <div class="modal" id="comparisonModal">
