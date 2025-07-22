@@ -1,0 +1,398 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>AI Tool Directory - Discover the Best AI Tools & Software</title>
++    <meta name="description" content="Discover, compare, and find the best AI tools for writing, image generation, coding, automation, and more. Comprehensive directory with reviews and ratings.">
++    <meta name="keywords" content="AI tools, artificial intelligence, chatbots, image generation, code AI, automation tools, AI directory">
++    <meta name="author" content="AI Tool Directory">
++    
++    <!-- Open Graph Meta Tags -->
++    <meta property="og:title" content="AI Tool Directory - Discover the Best AI Tools">
++    <meta property="og:description" content="Find and compare the best AI tools for your needs. From writing assistants to image generators.">
++    <meta property="og:type" content="website">
++    <meta property="og:url" content="https://your-domain.github.io">
++    
++    <!-- Twitter Card Meta Tags -->
++    <meta name="twitter:card" content="summary_large_image">
++    <meta name="twitter:title" content="AI Tool Directory">
++    <meta name="twitter:description" content="Discover the best AI tools for writing, coding, design, and more.">
++    
++    <!-- Favicon -->
++    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
++    
++    <!-- CSS -->
++    <link rel="stylesheet" href="styles/main.css">
++    
++    <!-- Google Fonts -->
++    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
++    
++    <!-- Font Awesome for Icons -->
++    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
++</head>
++<body>
++    <!-- Theme Toggle Button -->
++    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
++        <i class="fas fa-moon"></i>
++    </button>
++
++    <!-- Header -->
++    <header class="header">
++        <div class="container">
++            <div class="header-content">
++                <div class="logo">
++                    <i class="fas fa-robot"></i>
++                    <span>AI Tool Directory</span>
++                </div>
++                <nav class="nav">
++                    <a href="#home" class="nav-link active">Home</a>
++                    <a href="#tools" class="nav-link">Tools</a>
++                    <a href="#categories" class="nav-link">Categories</a>
++                    <a href="#submit" class="nav-link">Submit Tool</a>
++                    <a href="#contact" class="nav-link">Contact</a>
++                </nav>
++                <button class="mobile-menu-toggle" id="mobileMenuToggle">
++                    <span></span>
++                    <span></span>
++                    <span></span>
++                </button>
++            </div>
++        </div>
++    </header>
++
++    <!-- Mobile Navigation -->
++    <nav class="mobile-nav" id="mobileNav">
++        <a href="#home" class="mobile-nav-link">Home</a>
++        <a href="#tools" class="mobile-nav-link">Tools</a>
++        <a href="#categories" class="mobile-nav-link">Categories</a>
++        <a href="#submit" class="mobile-nav-link">Submit Tool</a>
++        <a href="#contact" class="mobile-nav-link">Contact</a>
++    </nav>
++
++    <!-- Hero Section -->
++    <section id="home" class="hero">
++        <div class="container">
++            <div class="hero-content">
++                <h1 class="hero-title">Discover the Best AI Tools</h1>
++                <p class="hero-subtitle">Find and compare AI-powered software for writing, design, coding, automation, and more. Your gateway to the future of productivity.</p>
++                
++                <!-- Search Bar -->
++                <div class="search-container">
++                    <div class="search-box">
++                        <i class="fas fa-search search-icon"></i>
++                        <input type="text" id="searchInput" placeholder="Search AI tools..." class="search-input">
++                        <button class="search-clear" id="searchClear">
++                            <i class="fas fa-times"></i>
++                        </button>
++                    </div>
++                </div>
++
++                <!-- Quick Stats -->
++                <div class="hero-stats">
++                    <div class="stat">
++                        <span class="stat-number" data-count="50">0</span>
++                        <span class="stat-label">AI Tools</span>
++                    </div>
++                    <div class="stat">
++                        <span class="stat-number" data-count="12">0</span>
++                        <span class="stat-label">Categories</span>
++                    </div>
++                    <div class="stat">
++                        <span class="stat-number" data-count="10000">0</span>
++                        <span class="stat-label">Users</span>
++                    </div>
++                </div>
++            </div>
++        </div>
++    </section>
++
++    <!-- Featured Tools Section -->
++    <section class="featured-section">
++        <div class="container">
++            <h2 class="section-title">🔥 Trending AI Tools</h2>
++            <div class="featured-tools" id="featuredTools">
++                <!-- Featured tools will be populated by JavaScript -->
++            </div>
++        </div>
++    </section>
++
++    <!-- Categories Section -->
++    <section id="categories" class="categories-section">
++        <div class="container">
++            <h2 class="section-title">Browse by Category</h2>
++            <div class="categories-grid" id="categoriesGrid">
++                <!-- Categories will be populated by JavaScript -->
++            </div>
++        </div>
++    </section>
++
++    <!-- Filters and Tools Section -->
++    <section id="tools" class="tools-section">
++        <div class="container">
++            <div class="tools-header">
++                <h2 class="section-title">All AI Tools</h2>
++                <div class="tools-controls">
++                    <!-- Filter Panel -->
++                    <div class="filters-container">
++                        <button class="filters-toggle" id="filtersToggle">
++                            <i class="fas fa-filter"></i>
++                            Filters
++                        </button>
++                        <div class="filters-panel" id="filtersPanel">
++                            <div class="filter-group">
++                                <label class="filter-label">Category</label>
++                                <select id="categoryFilter" class="filter-select">
++                                    <option value="">All Categories</option>
++                                </select>
++                            </div>
++                            <div class="filter-group">
++                                <label class="filter-label">Pricing</label>
++                                <select id="pricingFilter" class="filter-select">
++                                    <option value="">All Pricing</option>
++                                    <option value="Free">Free</option>
++                                    <option value="Freemium">Freemium</option>
++                                    <option value="Paid">Paid</option>
++                                </select>
++                            </div>
++                            <div class="filter-group">
++                                <label class="filter-label">Rating</label>
++                                <select id="ratingFilter" class="filter-select">
++                                    <option value="">All Ratings</option>
++                                    <option value="4.5">4.5+ Stars</option>
++                                    <option value="4.0">4.0+ Stars</option>
++                                    <option value="3.5">3.5+ Stars</option>
++                                </select>
++                            </div>
++                            <button class="filter-clear" id="clearFilters">Clear Filters</button>
++                        </div>
++                    </div>
++
++                    <!-- View Toggle -->
++                    <div class="view-toggle">
++                        <button class="view-btn active" data-view="grid" title="Grid View">
++                            <i class="fas fa-th"></i>
++                        </button>
++                        <button class="view-btn" data-view="list" title="List View">
++                            <i class="fas fa-list"></i>
++                        </button>
++                    </div>
++
++                    <!-- Comparison Toggle -->
++                    <button class="comparison-toggle" id="comparisonToggle" title="Compare Tools">
++                        <i class="fas fa-balance-scale"></i>
++                        Compare (<span id="comparisonCount">0</span>)
++                    </button>
++                </div>
++            </div>
++
++            <!-- Tools Grid -->
++            <div class="tools-grid" id="toolsGrid">
++                <!-- Tools will be populated by JavaScript -->
++            </div>
++
++            <!-- Load More Button -->
++            <div class="load-more-container">
++                <button class="load-more-btn" id="loadMoreBtn">Load More Tools</button>
++            </div>
++        </div>
++    </section>
++
++    <!-- Submit Tool Section -->
++    <section id="submit" class="submit-section">
++        <div class="container">
++            <div class="submit-content">
++                <h2 class="section-title">Submit Your AI Tool</h2>
++                <p class="section-subtitle">Have an AI tool to share? Submit it to our directory and reach thousands of users.</p>
++                
++                <form class="submit-form" id="submitForm">
++                    <div class="form-row">
++                        <div class="form-group">
++                            <label for="toolName">Tool Name *</label>
++                            <input type="text" id="toolName" name="toolName" required>
++                        </div>
++                        <div class="form-group">
++                            <label for="toolWebsite">Website URL *</label>
++                            <input type="url" id="toolWebsite" name="toolWebsite" required>
++                        </div>
++                    </div>
++                    
++                    <div class="form-group">
++                        <label for="toolDescription">Description *</label>
++                        <textarea id="toolDescription" name="toolDescription" rows="3" required placeholder="Describe what your AI tool does..."></textarea>
++                    </div>
++                    
++                    <div class="form-row">
++                        <div class="form-group">
++                            <label for="toolCategory">Category *</label>
++                            <select id="toolCategory" name="toolCategory" required>
++                                <option value="">Select Category</option>
++                            </select>
++                        </div>
++                        <div class="form-group">
++                            <label for="toolPricing">Pricing Model *</label>
++                            <select id="toolPricing" name="toolPricing" required>
++                                <option value="">Select Pricing</option>
++                                <option value="Free">Free</option>
++                                <option value="Freemium">Freemium</option>
++                                <option value="Paid">Paid</option>
++                            </select>
++                        </div>
++                    </div>
++                    
++                    <div class="form-group">
++                        <label for="toolTags">Tags (comma-separated)</label>
++                        <input type="text" id="toolTags" name="toolTags" placeholder="e.g., chatbot, content generation, API">
++                    </div>
++                    
++                    <button type="submit" class="submit-btn">
++                        <i class="fas fa-paper-plane"></i>
++                        Submit Tool
++                    </button>
++                </form>
++            </div>
++        </div>
++    </section>
++
++    <!-- Newsletter Section -->
++    <section class="newsletter-section">
++        <div class="container">
++            <div class="newsletter-content">
++                <h2>Stay Updated</h2>
++                <p>Get weekly updates on the latest AI tools and trends.</p>
++                <form class="newsletter-form" id="newsletterForm">
++                    <input type="email" placeholder="Enter your email" required>
++                    <button type="submit">Subscribe</button>
++                </form>
++            </div>
++        </div>
++    </section>
++
++    <!-- Contact Section -->
++    <section id="contact" class="contact-section">
++        <div class="container">
++            <div class="contact-content">
++                <h2 class="section-title">Get in Touch</h2>
++                <p class="section-subtitle">Have questions or suggestions? We'd love to hear from you.</p>
++                
++                <form class="contact-form" id="contactForm">
++                    <div class="form-row">
++                        <div class="form-group">
++                            <label for="contactName">Name *</label>
++                            <input type="text" id="contactName" name="name" required>
++                        </div>
++                        <div class="form-group">
++                            <label for="contactEmail">Email *</label>
++                            <input type="email" id="contactEmail" name="email" required>
++                        </div>
++                    </div>
++                    
++                    <div class="form-group">
++                        <label for="contactSubject">Subject *</label>
++                        <input type="text" id="contactSubject" name="subject" required>
++                    </div>
++                    
++                    <div class="form-group">
++                        <label for="contactMessage">Message *</label>
++                        <textarea id="contactMessage" name="message" rows="5" required></textarea>
++                    </div>
++                    
++                    <button type="submit" class="submit-btn">
++                        <i class="fas fa-envelope"></i>
++                        Send Message
++                    </button>
++                </form>
++            </div>
++        </div>
++    </section>
++
++    <!-- Footer -->
++    <footer class="footer">
++        <div class="container">
++            <div class="footer-content">
++                <div class="footer-brand">
++                    <div class="logo">
++                        <i class="fas fa-robot"></i>
++                        <span>AI Tool Directory</span>
++                    </div>
++                    <p>Discover the best AI tools for your needs.</p>
++                </div>
++                <div class="footer-links">
++                    <div class="footer-column">
++                        <h4>Quick Links</h4>
++                        <a href="#home">Home</a>
++                        <a href="#tools">Browse Tools</a>
++                        <a href="#categories">Categories</a>
++                        <a href="#submit">Submit Tool</a>
++                    </div>
++                    <div class="footer-column">
++                        <h4>Support</h4>
++                        <a href="#contact">Contact Us</a>
++                        <a href="#faq">FAQ</a>
++                        <a href="#privacy">Privacy Policy</a>
++                        <a href="#terms">Terms of Service</a>
++                    </div>
++                    <div class="footer-column">
++                        <h4>Follow Us</h4>
++                        <div class="social-links">
++                            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
++                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
++                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
++                        </div>
++                    </div>
++                </div>
++            </div>
++            <div class="footer-bottom">
++                <p>&copy; 2024 AI Tool Directory. All rights reserved.</p>
++            </div>
++        </div>
++    </footer>
++
++    <!-- Comparison Modal -->
++    <div class="modal" id="comparisonModal">
++        <div class="modal-content">
++            <div class="modal-header">
++                <h3>Compare AI Tools</h3>
++                <button class="modal-close" id="closeComparison">
++                    <i class="fas fa-times"></i>
++                </button>
++            </div>
++            <div class="modal-body" id="comparisonContent">
++                <!-- Comparison content will be populated by JavaScript -->
++            </div>
++        </div>
++    </div>
++
++    <!-- Tool Detail Modal -->
++    <div class="modal" id="toolModal">
++        <div class="modal-content">
++            <div class="modal-header">
++                <h3 id="toolModalTitle">Tool Details</h3>
++                <button class="modal-close" id="closeToolModal">
++                    <i class="fas fa-times"></i>
++                </button>
++            </div>
++            <div class="modal-body" id="toolModalContent">
++                <!-- Tool details will be populated by JavaScript -->
++            </div>
++        </div>
++    </div>
++
++    <!-- Loading Spinner -->
++    <div class="loading-spinner" id="loadingSpinner">
++        <div class="spinner"></div>
++    </div>
++
++    <!-- Back to Top Button -->
++    <button class="back-to-top" id="backToTop" title="Back to top">
++        <i class="fas fa-chevron-up"></i>
++    </button>
++
++    <!-- JavaScript -->
++    <script src="js/data.js"></script>
++    <script src="js/main.js"></script>
++    
++    <!-- Analytics Placeholder -->
++    <!-- Google Analytics or other analytics code can be added here -->
++</body>
++</html>
