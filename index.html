@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tool Directory - Discover the Best AI Tools & Software</title>
+  <meta name="description" content="Discover, compare, and find the best AI tools for writing, image generation, coding, automation, and more. Comprehensive directory with reviews and ratings.">
+  <meta name="keywords" content="AI tools, artificial intelligence, machine learning, deep learning, AI directory, AI software, AI chatbot, AI writing assistant, AI code generator, AI automation, AI productivity, tech innovation, AI comparison, AI marketplace, AI analytics, AI design tools, AI development, neural networks, data science tools, AI startups, open source AI, best AI apps, AI research, AI solutions, business intelligence, smart technology, digital tools, software directory, emerging tech, futuristic tools, machine vision, NLP tools, generative AI">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="AI Tool Directory - Discover & Compare Top AI Tools">
+  <meta property="og:description" content="Explore a curated list of AI tools and software across categories like writing, coding, design, and more. Compare features, ratings, and find the perfect AI solution.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:image" content="https://example.com/social-image.png">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@AIToolDirectory">
+  <meta name="twitter:title" content="AI Tool Directory - Discover & Compare AI Tools">
+  <meta name="twitter:description" content="Explore the best AI tools for writing, design, coding, automation, and more. Find, compare, and choose the perfect AI software for your needs.">
+  <meta name="twitter:image" content="https://example.com/social-image.png">
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="main-aidea.css">
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <button id="themeToggle" class="theme-toggle"><i class="fas fa-moon"></i></button>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-content">
+      <a href="#home" class="logo"><i class="fas fa-robot"></i> AI Tool Directory</a>
+      <nav class="nav">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#tools" class="nav-link">Tools</a>
+        <a href="#categories" class="nav-link">Categories</a>
+        <a href="#submit" class="nav-link">Submit Tool</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <button id="mobileMenuToggle" class="mobile-menu-toggle">
+        <span></span><span></span><span></span>
+      </button>
+      <div id="mobileNav" class="mobile-nav">
+        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="#tools" class="mobile-nav-link">Tools</a>
+        <a href="#categories" class="mobile-nav-link">Categories</a>
+        <a href="#submit" class="mobile-nav-link">Submit Tool</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <h1 class="hero-title">Discover the Best AI Tools</h1>
+      <p class="hero-subtitle">Find and compare AI-powered software for writing, design, coding, automation, and more. Your gateway to the future of productivity.</p>
+      <div class="search-container">
+        <div class="search-box">
+          <button class="search-icon"><i class="fas fa-search"></i></button>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search AI tools...">
+          <button id="searchClear" class="search-clear"><i class="fas fa-times"></i></button>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number" data-count="100">0</span>
+          <span class="stat-label">AI Tools</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-count="20">0</span>
+          <span class="stat-label">Categories</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-count="300">0</span>
+          <span class="stat-label">Users</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Tools Section -->
+  <section class="featured-section" id="featured">
+    <div class="container">
+      <h2 class="section-title">🔥 Trending AI Tools</h2>
+      <div id="featuredTools" class="featured-tools"></div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories-section" id="categories">
+    <div class="container">
+      <h2 class="section-title">Categories</h2>
+      <div id="categoriesGrid" class="categories-grid"></div>
+    </div>
+  </section>
+
+  <!-- All Tools Section -->
+  <section class="tools-section" id="tools">
+    <div class="container">
+      <h2 class="section-title">All AI Tools</h2>
+      <div class="tools-header">
+        <div class="tools-controls">
+          <div class="filters-container">
+            <button id="filtersToggle" class="filters-toggle"><i class="fas fa-filter"></i> Filters</button>
+            <div id="filtersPanel" class="filters-panel">
+              <div class="filter-group">
+                <label class="filter-label">Category</label>
+                <select id="categoryFilter" class="filter-select">
+                  <option value="">All Categories</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label class="filter-label">Pricing</label>
+                <select id="pricingFilter" class="filter-select">
+                  <option value="">All Pricing</option>
+                  <option value="Free">Free</option>
+                  <option value="Freemium">Freemium</option>
+                  <option value="Paid">Paid</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label class="filter-label">Rating</label>
+                <select id="ratingFilter" class="filter-select">
+                  <option value="">All Ratings</option>
+                  <option value="1">1+ Stars</option>
+                  <option value="2">2+ Stars</option>
+                  <option value="3">3+ Stars</option>
+                  <option value="4">4+ Stars</option>
+                  <option value="5">5 Stars</option>
+                </select>
+              </div>
+              <button id="clearFilters" class="filter-clear">Clear Filters</button>
+            </div>
+          </div>
+          <div class="view-toggle">
+            <button class="view-btn active" data-view="grid" title="Grid View"><i class="fas fa-th"></i></button>
+            <button class="view-btn" data-view="list" title="List View"><i class="fas fa-list"></i></button>
+          </div>
+          <button id="comparisonToggle" class="comparison-toggle"><i class="fas fa-balance-scale"></i> Compare (<span id="comparisonCount">0</span>)</button>
+        </div>
+      </div>
+      <div id="toolsGrid" class="tools-grid"></div>
+      <div class="load-more-container">
+        <button id="loadMoreBtn" class="load-more-btn">Load More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Subscription -->
+  <section class="newsletter-section">
+    <div class="container newsletter-content">
+      <h2>Subscribe to Our Newsletter</h2>
+      <p>Stay updated on the latest AI tools and trends. Join our newsletter for weekly updates, tips, and exclusive content.</p>
+      <form id="newsletterForm" class="newsletter-form">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Submit Tool Section -->
+  <section id="submit" class="submit-section">
+    <div class="container">
+      <h2 class="section-title">Submit Your AI Tool</h2>
+      <form id="submitForm" class="submit-form">
+        <div class="form-group">
+          <label for="toolName">Tool Name</label>
+          <input type="text" id="toolName" name="toolName" required>
+        </div>
+        <div class="form-group">
+          <label for="toolDescription">Description</label>
+          <textarea id="toolDescription" name="toolDescription" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="toolCategory">Category</label>
+          <select id="toolCategory" name="toolCategory" required>
+            <option value="">Select Category</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="toolUrl">Website</label>
+          <input type="url" id="toolUrl" name="toolUrl" required>
+        </div>
+        <button type="submit" class="submit-btn"><i class="fas fa-cloud-upload-alt"></i> Submit Tool</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <form id="contactForm" class="contact-form">
+        <div class="form-group">
+          <label for="contactName">Name</label>
+          <input type="text" id="contactName" name="contactName" required>
+        </div>
+        <div class="form-group">
+          <label for="contactEmail">Email</label>
+          <input type="email" id="contactEmail" name="contactEmail" required>
+        </div>
+        <div class="form-group">
+          <label for="contactMessage">Message</label>
+          <textarea id="contactMessage" name="contactMessage" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <h3>AI Tool Directory</h3>
+        <p>Empowering you to discover and compare the best AI tools for your needs.</p>
+        <div class="social-links">
+          <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <a href="#home">Home</a>
+        <a href="#tools">All Tools</a>
+        <a href="#categories">Categories</a>
+        <a href="#submit">Submit Tool</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-column">
+        <h4>Categories</h4>
+        <a href="#">Writing</a>
+        <a href="#">Design</a>
+        <a href="#">Development</a>
+        <a href="#">Marketing</a>
+        <a href="#">Analytics</a>
+      </div>
+      <div class="footer-column">
+        <h4>Stay Connected</h4>
+        <p>Join our newsletter for updates on the latest AI tools and news.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 AI Tool Directory. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+  <!-- Comparison Modal -->
+  <div class="modal" id="comparisonModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Compare AI Tools</h3>
+        <button class="modal-close" id="closeComparison"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body" id="comparisonContent">
+        <!-- Comparison content populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Tool Detail Modal -->
+  <div class="modal" id="toolModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="toolModalTitle">Tool Details</h3>
+        <button class="modal-close" id="closeToolModal"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body" id="toolModalContent">
+        <!-- Tool details populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div class="loading-spinner" id="loadingSpinner">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" title="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="main-aidea.js"></script>
+</body>
+</html>
